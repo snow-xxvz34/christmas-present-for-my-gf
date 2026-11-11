@@ -4,171 +4,123 @@
 <head>
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
-<title>a lil thing for u </title>
+<title>for my pookie</title>
 
 <style>
-:root {
-  --pink: #f6a9c5;
-  --deep: #b84d78;
-  --ink: #60384a;
-  --soft: #ffe3ed;
+* {
+  box-sizing: border-box;
 }
-
-* { box-sizing: border-box; }
 
 body {
   margin: 0;
-  min-height: 100vh;
-  padding: 24px 16px;
-  display: grid;
-  place-items: center;
-  color: var(--ink);
-  font-family: "Trebuchet MS", system-ui, sans-serif;
-  background: linear-gradient(145deg, #fff3f7, #ffe1ec, #fff8fb);
-}
-
-.card {
-  width: min(100%, 650px);
-  padding: clamp(24px, 6vw, 46px);
-  border: 2px solid white;
-  border-radius: 28px;
-  background: rgba(255,250,252,.96);
-  box-shadow: 0 18px 55px rgba(166,77,112,.15);
+  font-family: "Trebuchet MS", sans-serif;
+  background: #ffe6f0;
+  color: #743b55;
   text-align: center;
 }
 
-.tiny {
-  color: var(--deep);
-  letter-spacing: .08em;
-  font-size: .82rem;
+.page {
+  display: none;
+  min-height: 100vh;
+  padding: 35px 20px;
+  justify-content: center;
+  align-items: center;
+  flex-direction: column;
+}
+
+.page.active {
+  display: flex;
+}
+
+.card {
+  background: #fff7fa;
+  padding: 30px 24px;
+  border-radius: 25px;
+  width: 100%;
+  max-width: 600px;
+  box-shadow: 0 8px 25px #e9a9c5;
 }
 
 h1 {
-  color: var(--deep);
-  font-size: clamp(2rem, 7vw, 3.2rem);
+  color: #d65d91;
+  font-size: 32px;
 }
 
-h2 { color: var(--deep); }
-
-p { line-height: 1.65; }
-
-.buttons {
-  display: grid;
-  gap: 13px;
-  margin-top: 28px;
+p {
+  font-size: 18px;
 }
 
 button {
-  border: 0;
-  border-radius: 16px;
-  padding: 15px 20px;
-  color: white;
-  background: var(--deep);
-  font: inherit;
+  background: #f3a6c5;
+  color: #743b55;
+  border: none;
+  border-radius: 18px;
+  padding: 14px 22px;
+  margin: 9px;
+  font-size: 16px;
   font-weight: bold;
   cursor: pointer;
-  box-shadow: 0 5px 0 #8f3d60;
-  transition: .15s;
+  transition: 0.2s;
 }
 
 button:hover {
-  filter: brightness(1.08);
-  transform: translateY(-2px);
-}
-
-button:active {
-  transform: translateY(2px);
-}
-
-button.secondary {
-  color: var(--deep);
-  background: var(--soft);
-  box-shadow: 0 5px 0 #edbfd0;
-}
-
-.hidden { display: none; }
-
-.love-list {
-  display: grid;
-  grid-template-columns: repeat(auto-fit, minmax(180px, 1fr));
-  gap: 11px;
-  margin: 24px 0;
+  background: #e985af;
+  transform: scale(1.04);
 }
 
 .love-item {
-  padding: 13px;
-  border-radius: 14px;
-  background: #fff0f5;
-  border: 1px solid #f9d1df;
-  font-weight: 600;
+  background: #ffe0ed;
+  border-radius: 15px;
+  padding: 12px;
+  margin: 9px;
+  font-size: 18px;
 }
 
-.question {
-  padding: 18px;
-  margin: 18px 0;
-  border-radius: 18px;
-  background: #fff0f5;
-  font-size: 1.15rem;
+#answers {
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: center;
+}
+
+#feedback {
+  font-size: 20px;
   font-weight: bold;
+  min-height: 30px;
+  margin-top: 15px;
 }
 
-.answers {
-  display: grid;
-  grid-template-columns: repeat(2, 1fr);
-  gap: 11px;
+#progress {
+  color: #bd648a;
+  font-size: 15px;
 }
 
-.answers button { min-height: 56px; }
-
-.feedback {
-  min-height: 32px;
-  margin: 20px 0 8px;
-  color: var(--deep);
-  font-weight: bold;
-  font-size: 1.15rem;
-}
-
-.small { font-size: .9rem; opacity: .8; }
-
-@media(max-width:420px) {
-  .answers { grid-template-columns: 1fr; }
-}
 </style>
 </head>
 
 <body>
-<main class="card">
 
-<!-- HOME PAGE -->
-<section id="home">
-  <div class="tiny">ur christmas gift</div>
-  <h1>hi u cutie</h1>
-  <p>
-    i made a lil something for u.<br>
-    pick what u wanna do
-  </p>
+<div id="home" class="page active">
+  <div class="card">
+    <h1>hi pookie</h1>
+    <p>i made a lil something for u</p>
+    <p>choose one</p>
 
-  <div class="buttons">
-    <button onclick="showPage(love)">
+    <button onclick="showPage('love')">
       everything i love abt u
     </button>
 
-    <button class="secondary" onclick="startQuiz()">
+    <button onclick="startQuiz()">
       take a lil quiz
     </button>
   </div>
+</div>
 
-  <p class="small">made with lots of love just for u</p>
-</section>
 
-<!-- LOVE PAGE -->
-<section id="love" class="hidden">
-  <div class="tiny">a whole page dedicated to u</div>
-  <h1>everything i love abt u</h1>
+<div id="love" class="page">
+  <div class="card">
+    <h1>everything i love abt u</h1>
+    <p>here are some things i love abt u</p>
 
-  <p>where do i even start bc theres so much to love abt u</p>
-
-  <div class="love-list">
     <div class="love-item">ur sweet</div>
     <div class="love-item">ur nice</div>
     <div class="love-item">ur personality</div>
@@ -183,203 +135,231 @@ button.secondary {
     <div class="love-item">the way u talk</div>
     <div class="love-item">all ur lil habits</div>
     <div class="love-item">how u make my days better</div>
-    <div class="love-item">just being u</div>
+    <div class="love-item">js being u</div>
+    <div class="love-item">everything abt u</div>
+    <div class="love-item">how u make me smile</div>
+    <div class="love-item">ur lil reactions</div>
+    <div class="love-item">how u care abt me</div>
+    <div class="love-item">the way u make me feel</div>
+
+    <p>and so much more</p>
+
+    <button onclick="showPage('home')">go back</button>
   </div>
+</div>
 
-  <p>
-    and honestly ts list could go on forever<br>
-    i love so many things abt u
-  </p>
 
-  <button onclick="showPage(home)">← back home</button>
-</section>
+<div id="quiz" class="page">
+  <div class="card">
+    <h1>a lil quiz</h1>
 
-<!-- QUIZ PAGE -->
-<section id="quiz" class="hidden">
-  <div class="tiny">lets see what u know abt me</div>
-  <h1>a lil quiz</h1>
+    <p id="progress"></p>
+    <h2 id="question"></h2>
 
-  <p id="progress" class="small"></p>
+    <div id="answers"></div>
 
-  <div class="question" id="question"></div>
+    <p id="feedback"></p>
 
-  <div class="answers" id="answers"></div>
+    <button id="nextButton" onclick="nextQuestion()" style="display:none">
+      next question
+    </button>
 
-  <div class="feedback" id="feedback"></div>
+    <button onclick="showPage('home')">go home</button>
+  </div>
+</div>
 
-  <button id="next" class="hidden" onclick="nextQuestion()">
-    next question →
-  </button>
 
-  <br><br>
+<div id="done" class="page">
+  <div class="card">
+    <h1>YAYYY</h1>
+    <p>u finished the quiz</p>
+    <p>i hope u enjoyed it pookie</p>
+    <p>i love u so much</p>
 
-  <button class="secondary" onclick="showPage(home)">
-    ← back home
-  </button>
-</section>
+    <button onclick="showPage('home')">go back home</button>
+  </div>
+</div>
 
-<!-- FINISH PAGE -->
-<section id="done" class="hidden">
-  <div class="tiny">quiz complete</div>
-  <h1>YAYYY</h1>
-
-  <p>
-    u finished the quiz!!<br>
-    i hope u had fun my pookie
-  </p>
-
-  <p id="score"></p>
-
-  <button onclick="startQuiz()">play again</button>
-
-  <br><br>
-
-  <button class="secondary" onclick="showPage(home)">
-    back home
-  </button>
-</section>
-
-</main>
 
 <script>
-const pages = ["home", "love", "quiz", "done"];
 
-function showPage(page) {
-  pages.forEach(id => {
-    document.getElementById(id).classList.toggle(
-      "hidden", id !== page
-    );
+function showPage(pageId) {
+  document.querySelectorAll(".page").forEach(page => {
+    page.classList.remove("active");
   });
+
+  document.getElementById(pageId).classList.add("active");
 }
 
-const questions = [
+
+// quiz questions
+
+const originalQuestions = [
+
   {
-    q: "what do i hate the most?",
-    options: ["school", "u", "gd", "mm2"],
-    answer: "school"
+    question: "what do i hate the most",
+    answers: ["school", "you", "gd", "mm2"],
+    correct: "school"
   },
+
   {
-    q: "whens my birthday?",
-    options: ["january", "april", "august", "november"],
-    answer: "january"
+    question: "whens my birthday",
+    answers: ["january", "april", "august", "november"],
+    correct: "january"
   },
+
   {
-    q: "r u beautiful?",
-    options: ["yes", "no", "more beautiful than ever", "u look like shrek"],
-    answer: "more beautiful than ever"
+    question: "r u beautiful",
+    answers: ["yes", "no", "more beautiful than ever", "u look like shrek"],
+    correct: "more beautiful than ever"
   },
+
   {
-    q: "do i wanna come down to bulgaria and kiss u?",
-    options: ["no", "yes"],
-    answer: "yes"
+    question: "do i wanna come down to bulgaria and kiss u",
+    answers: ["no", "yes"],
+    correct: "yes"
   }
+
 ];
 
+
 const rightMessages = [
-  "YAY u did it!",
-  "OMG YAY",
-  "YIPPIE",
-  "CONGRATS"
+  "YAY u did it",
+  "omg yay",
+  "yippie",
+  "congrats"
 ];
 
 const wrongMessages = [
-  "nuh uh thats WRONG",
-  "thats VERY wrong :(",
+  "nuh uh thats wrong",
+  "thats VERY wrong",
   "if u get it wrong one more time i will uhh idk",
-  "noob >:3"
+  "noob"
 ];
 
-let current = 0;
-let score = 0;
+
+let questions = [];
+let currentQuestion = 0;
 let answered = false;
 
-function randomMessage(list) {
-  return list[Math.floor(Math.random() * list.length)];
+
+// shuffle anything in an array
+
+function shuffle(array) {
+  const shuffled = [...array];
+
+  for (let i = shuffled.length - 1; i > 0; i--) {
+    const j = Math.floor(Math.random() * (i + 1));
+
+    [shuffled[i], shuffled[j]] = [shuffled[j], shuffled[i]];
+  }
+
+  return shuffled;
 }
+
+
+// start quiz with a random question order
 
 function startQuiz() {
-  current = 0;
-  score = 0;
+  questions = shuffle(originalQuestions).map(question => {
+    return {
+      ...question,
+      answers: shuffle(question.answers)
+    };
+  });
+
+  currentQuestion = 0;
+
   showPage("quiz");
-  renderQuestion();
+  displayQuestion();
 }
 
-function renderQuestion() {
+
+// display current question
+
+function displayQuestion() {
   answered = false;
 
-  const item = questions[current];
+  const question = questions[currentQuestion];
+
+  document.getElementById("question").textContent = question.question;
 
   document.getElementById("progress").textContent =
-    `question ${current + 1} of ${questions.length}`;
+    "question " + (currentQuestion + 1) + " of " + questions.length;
 
-  document.getElementById("question").textContent = item.q;
   document.getElementById("feedback").textContent = "";
 
-  document.getElementById("next").classList.add("hidden");
+  document.getElementById("nextButton").style.display = "none";
 
-  const answers = document.getElementById("answers");
-  answers.innerHTML = "";
+  const answersDiv = document.getElementById("answers");
 
-  item.options.forEach(option => {
+  answersDiv.innerHTML = "";
+
+  question.answers.forEach(answer => {
     const button = document.createElement("button");
 
-    button.className = "secondary";
-    button.textContent = option;
+    button.textContent = answer;
 
-    button.addEventListener("click", () => {
-      chooseAnswer(option);
-    });
+    button.onclick = () => checkAnswer(answer, button);
 
-    answers.appendChild(button);
+    answersDiv.appendChild(button);
   });
 }
 
-function chooseAnswer(choice) {
+
+// check answer
+
+function checkAnswer(answer, clickedButton) {
   if (answered) return;
 
   answered = true;
 
-  const correct = choice === questions[current].answer;
+  const question = questions[currentQuestion];
+  const feedback = document.getElementById("feedback");
 
-  if (correct) score++;
+  const buttons = document.querySelectorAll("#answers button");
 
-  document.getElementById("feedback").textContent =
-    correct
-      ? randomMessage(rightMessages)
-      : randomMessage(wrongMessages);
-
-  document.querySelectorAll("#answers button").forEach(button => {
+  buttons.forEach(button => {
     button.disabled = true;
-    button.style.opacity = ".65";
-
-    if (button.textContent === questions[current].answer) {
-      button.style.background = "#b85b83";
-      button.style.color = "white";
-    }
   });
 
-  const next = document.getElementById("next");
+  if (answer === question.correct) {
+    feedback.textContent =
+      rightMessages[Math.floor(Math.random() * rightMessages.length)];
 
-  next.textContent =
-    current === questions.length - 1
-      ? "see results"
-      : "next question →";
+    clickedButton.style.background = "#a9e6b2";
 
-  next.classList.remove("hidden");
-}
-
-function nextQuestion() {
-  current++;
-
-  if (current < questions.length) {
-    renderQuestion();
   } else {
-    document.getElementById("score").textContent =
-      `u got ${score} out of ${questions.length} right!`;
+    feedback.textContent =
+      wrongMessages[Math.floor(Math.random() * wrongMessages.length)];
 
-    showPage("done");
+    clickedButton.style.background = "#f3a6a6";
+  }
+
+  document.getElementById("nextButton").style.display = "inline-block";
+
+  if (currentQuestion === questions.length - 1) {
+    document.getElementById("nextButton").textContent = "finish";
+  } else {
+    document.getElementById("nextButton").textContent = "next question";
   }
 }
+
+
+// move to next question
+
+function nextQuestion() {
+  if (!answered) return;
+
+  currentQuestion++;
+
+  if (currentQuestion >= questions.length) {
+    showPage("done");
+  } else {
+    displayQuestion();
+  }
+}
+
 </script>
 
 </body>
